@@ -9,10 +9,17 @@
 <body>
 
   <button>hello</button>
+  <button class="js-btn">Second button</button>
 
   <script>
-    document.body.innerHTML = 'hello';
-    document.title = 'kagwa';
+   // document.body.innerHTML = 'hello';
+    //document.title = 'kagwa';
+    console.log(document.querySelector('button').innerHTML);
+
+    document.querySelector('button').innerHTML = 'testing';
+    console.log(document.querySelector('.js-btn'));
+    document.querySelector('.js-btn').innerHTML = 'dey play';
+
   </script>
 
 </body>

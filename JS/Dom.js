@@ -1,2 +1,1 @@
-document.body.innerText = 'hext';
-document.title = 'good gob';
+console.log(document.querySelector('button'));
