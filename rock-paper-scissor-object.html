@@ -36,17 +36,31 @@
   score.wins = 0;
   score.losses = 0;
   score.draws = 0;
+
+  localStorage.removeItem('score');
+
   ">
     Reset score
   </button>
 
   <script>
 
-    const score = {
+    let score = JSON.parse(localStorage.getItem('score')) || {
       wins: 0,
       losses: 0,
       draws: 0
-    }; // the score object was created outside the function to prevent it from creating new value (score) each time we click the function thereby making it difficuilt to track the previous score.
+    };
+     // the score object was created outside the function to prevent it from creating new value (score) each time we click the function thereby making it difficuilt to track the previous score.
+
+     /*if (score === null) {
+          score = {
+            wins: 0,
+            losses: 0,
+            draws: 0
+          };
+     };*/
+
+    JSON.parse(localStorage.getItem('score'));
 
     function playGame (playerMove) {
 
@@ -88,6 +102,8 @@
             } else if (result === 'Tie') {
               score.draws  += 1;
             };
+
+            localStorage.setItem('score', JSON.stringify(score));
     
 
     alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}

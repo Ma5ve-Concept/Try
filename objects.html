@@ -28,6 +28,40 @@
 
     // in reality objects makes our codes more organized.
 
+    const product2 = {
+      name: 'kaya'
+    };
+    console.log(product2);
+    console.log(product2.name); // this called dot notation
+    console.log(product2['name']); // this called bracket notation
+
+    const product3 = {
+      name: 'shirt',
+      ['delivery-time']: '1 day',
+      rating: {
+        stars: 4.5,
+        counts: 65
+      },  // nested objects lets you put an object inside another object.
+
+      fun: function myfunction() {
+        console.log('print this function inside')
+      } // you can insert a function in an object, since a function is another type of value.
+
+      
+      
+    };
+
+    console.log(product3.rating.stars);
+
+    product3.fun(); // note that you didi not use the console for the function to be displayed in the browser console.
+
+    //function saved inside an object is called a method. eg console.log, math.random
+
+    console.log(JSON.stringify(product3)); // to convert javascript object to Json
+
+    const jsonstring = JSON.stringify(product3);
+    console.log(JSON.parse(jsonstring)); // to convert json back to javacript object.
+
   </script>
 </body>
 </html>
