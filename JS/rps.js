@@ -1,66 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rock Paper Scissors</title>
-</head>
-<body>
-
-  <p>Rock Paper Scissors</p>
-  
-  <button onclick="
-
-    playGame('rock');
-    
-    ">Rock
-  </button>
-
-  <button onclick="
-
-    playGame('paper');
-
-    ">
-    Paper
-  </button>
-
-  <button onclick="
-  
-     playGame('scissors');
-    
-    ">
-    Scissors
-  </button>
-
-  <button onclick="
-  score.wins = 0;
-  score.losses = 0;
-  score.draws = 0;
-
-  localStorage.removeItem('score');
-
-  ">
-    Reset score
-  </button>
-
-  <script>
-
-    let score = JSON.parse(localStorage.getItem('score')) || {
+ let score = JSON.parse(localStorage.getItem('score')) || {
       wins: 0,
       losses: 0,
       draws: 0
     };
 
-      
-     // the score object was created outside the function to prevent it from creating new value (score) each time we click the function thereby making it difficuilt to track the previous score.
+      displayScore();
 
-     /*if (score === null) {
-          score = {
-            wins: 0,
-            losses: 0,
-            draws: 0
-          };
-     };*/
+      
 
     JSON.parse(localStorage.getItem('score'));
 
@@ -106,14 +52,25 @@
             };
 
             localStorage.setItem('score', JSON.stringify(score));
-    
 
-     alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
-     Wins. ${score.wins}, Losses. ${score.losses}, Ties. ${score.draws}`)
+            
+            displayScore();
+
+                document.querySelector('.js-moves')
+                 .innerHTML = `You ${playerMove} - ${computerMove} computer`;
+
+               document.querySelector('.js-result')
+                .innerHTML = result;
+
+    
+            
 
     };
     
-    
+    function displayScore() {
+      document.querySelector('.js-score')
+        .innerText = `wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.draws}`;
+    };
 
     function pickComputerMove(){
       const randomNumber = Math.random();
@@ -134,6 +91,3 @@
     return computerMove;
 
     }
-  </script>
-</body>
-</html>
