@@ -4,7 +4,9 @@ function subFunction() {
 
       if (buttonElememt.innerHTML === 'Subscribe') {
         buttonElememt.innerHTML = 'Subscribed';
+        buttonElememt.classList.add('is-subscribed')
       } else  {
-        buttonElememt.innerHTML = 'Subscribe'
+        buttonElememt.innerHTML = 'Subscribe';
+        buttonElememt.classList.remove('is-subscribed');
       };
     };
